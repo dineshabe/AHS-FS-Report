@@ -6,7 +6,6 @@ import javax.annotation.PostConstruct
 
 @Component
 class RegionsDatabase {
-    // All of our books will live here
     private val regions = mutableListOf<Region>()
 
     fun getRegions() = regions
@@ -23,19 +22,24 @@ class RegionsDatabase {
     private fun init() {
         // Fill our "database"
         regions.add(Region(
-                "North",
+                id = 1001,
+                name = "North",
                 detailedName = "North Zone"))
         regions.add(Region(
-                "Edmonton",
+                id = 1002,
+                name = "Edmonton",
                 detailedName = "Edmonton & Area"))
         regions.add(Region(
-                "Central",
+                id = 1003,
+                name = "Central",
                 detailedName = "Red Deer & Camrose Area"))
         regions.add(Region(
-                "Calgary",
+                id = 1004,
+                name = "Calgary",
                 detailedName = "Calgary & Area"))
         regions.add(Region(
-                "South",
+                id = 1005,
+                name = "South",
                 detailedName = "Lethbridge/Medicine Hat & Area"))
     }
 }
