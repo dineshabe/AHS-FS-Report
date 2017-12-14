@@ -1,21 +1,14 @@
 package com.dinmab.kotlin.ahsfsreport.model
 
-import java.util.*
+import javax.persistence.Entity
+import javax.persistence.Id
+import javax.persistence.Table
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
 
-class Violation {
-    var id: Long
-    var reportId: Long
-    var violation: String
-    var requirement: String
-    var comment: String
-    var critical: Boolean
-
-    constructor(id: Long,reportId: Long,violation: String, requirement: String, comment: String, critical: Boolean = false) {
-        this.id = id
-        this.reportId = reportId
-        this.violation = violation
-        this.requirement = requirement
-        this.comment = comment
-        this.critical = critical
-    }
+@Entity
+@Table(name = "violation")
+class Violation (val reportId: Long, val violation: String, val requirement: String, val comment: String, val critical: Boolean, @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: Long = -1) {
+        private constructor() : this(-1, "", "", "", false)
 }

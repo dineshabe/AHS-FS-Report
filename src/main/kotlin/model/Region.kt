@@ -1,13 +1,11 @@
 package com.dinmab.kotlin.ahsfsreport.model
 
-class Region {
-    var id: Long
-    var name: String
-    var detailedName: String
+import javax.persistence.*
 
-    constructor(id: Long,name: String, detailedName: String) {
-        this.id = id
-        this.name = name
-        this.detailedName = detailedName
+@Entity
+@Table(name = "region")
+class Region (val name: String, val detailedName: String, @Id @GeneratedValue(strategy = GenerationType.AUTO)
+val id: Long = -1 ) {
+    private constructor() : this("","") {
     }
 }

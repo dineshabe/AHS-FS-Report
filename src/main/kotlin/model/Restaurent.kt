@@ -1,17 +1,11 @@
 package com.dinmab.kotlin.ahsfsreport.model
-class Restaurent {
-    var id: Long
-    var name: String
-    var address: String
-    var type: String
-    var zoneId: Long
-    var reports = mutableListOf<Report>()
 
-    constructor(id: Long,zoneId: Long,name: String, address: String, type: String) {
-        this.id = id
-        this.zoneId = zoneId
-        this.name = name
-        this.address = address
-        this.type = type
+import javax.persistence.*
+
+@Entity
+@Table(name = "restaurent")
+class Restaurent (val name: String, val address: String, val type: String, zoneId: Long,@Id @GeneratedValue(strategy = GenerationType.AUTO)
+val id: Long = -1 ) {
+    private constructor(): this( "",  "",  "",  -1) {
     }
 }
